@@ -49,3 +49,7 @@ function importLocalStorage() {
         // todo: something went wrong; no data retrieved
     }
 }
+
+function saveDB(db) {
+    // todo
+}
