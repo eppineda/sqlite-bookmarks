@@ -68,11 +68,12 @@ function restoreDB() {
         /* return reference to SQLite database in memory */
 }
 
-(function initialize() {
+(function() {
     try {
         db = restoreDB()
     }
     catch(e) {
         console.error(e)
     }
+    console.log('SQLite is ready.')
 })()
