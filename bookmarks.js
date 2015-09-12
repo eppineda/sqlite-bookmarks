@@ -33,10 +33,21 @@ function createDB() {
 
     return db
 } // createDB
+
+function saveDB(db) {
+    if (!simpleStorage.canUse())
         throw { name:'BookmarkException', msg:'local storage not an option' }
-        db.close()
+
+    var result = exportSQLite(db)
+
+    if (false === result) {
+        throw { name:'BookmarkException', msg:'failed to write to local storage'}
     }
-}
+    if ('Object' === result) {
+        throw result
+    }
+// successfully written to local storage
+} // saveDB
 
 function importLocalStorage() {
     var string2Bin = function(str) {
