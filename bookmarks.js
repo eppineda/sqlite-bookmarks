@@ -10,24 +10,29 @@ function exportSQLite(db) {
 }
 
 function createDB() {
+    if (!simpleStorage.canUse())
+        throw { name:'BookmarkException', msg:'local storage not an option' }
+
     var db = new SQL.Database()
 
-// create database tables
     db.run('CREATE TABLE bookmarks (url, tags, expirationDate, creationDate);')
     db.run('CREATE TABLE tags (tag);')
-// write the database to a file
-    if (simpleStorage.canUse()) {
-        var result = exportSQLite(db)
 
-        if (false === result) {
-            throw { name:'BookmarkException', msg:'failed to export local storage'}
-        }
-        if ('Object' === result) {
-            throw result
-        }
-        db.close()
+// empty database exists in memory
+
+    var result = exportSQLite(db)
+
+    if (false === result) {
+        throw { name:'BookmarkException', msg:'failed to write to local storage'}
     }
-    else {
+    if ('Object' === result) {
+        throw result
+    }
+
+// database now written to local storage
+
+    return db
+} // createDB
         throw { name:'BookmarkException', msg:'local storage not an option' }
         db.close()
     }
