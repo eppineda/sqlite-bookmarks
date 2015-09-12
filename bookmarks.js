@@ -60,7 +60,7 @@ function importLocalStorage() {
     else {
         // todo: something went wrong; no data retrieved
     }
-}
+} // importLocalStorage
 
 function saveDB(db) {
     // todo
