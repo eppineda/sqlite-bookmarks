@@ -6,7 +6,7 @@ function exportSQLite(db) {
     }
 
     return simpleStorage.set(constants.mybookmarks, bin2String(db.export()))
-        /* true, false, or error object */
+        /* true, false, or error object, according to API docs */
 }
 
 function createDB() {
