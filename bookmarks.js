@@ -22,12 +22,10 @@ function createDB() {
 
     var result = exportSQLite(db)
 
-    if (false === result) {
+    if (false === result)
         throw { name:'BookmarkException', msg:'failed to write to local storage'}
-    }
-    if ('Object' === result) {
-        throw result
-    }
+    if ('Object' === typeof result)
+        throw result // something very bad happened
 
 // database now written to local storage
 
@@ -40,12 +38,10 @@ function saveDB(db) {
 
     var result = exportSQLite(db)
 
-    if (false === result) {
+    if (false === result)
         throw { name:'BookmarkException', msg:'failed to write to local storage'}
-    }
-    if ('Object' === result) {
-        throw result
-    }
+    if ('Object' === typeof result)
+        throw result // something very bad happened
 // successfully written to local storage
 } // saveDB
 
