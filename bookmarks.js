@@ -23,7 +23,7 @@ function createDB() {
     var result = exportSQLite(db)
 
     if (false === result)
-        throw { name:'BookmarkException', msg:'failed to write to local storage'}
+        throw { name:'BookmarkException', msg:'failed to write to local storage' }
     if ('Object' === typeof result)
         throw result // something very bad happened
 
