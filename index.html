@@ -6,6 +6,7 @@
         <script src="sql.js"></script>
         <script src="bower_components/simpleStorage/simpleStorage.js"></script>
         <script src="bookmarks.js"></script>
+        <script src="ui.js"></script>
         <style type="text/css">
         #data-entry * { display: inline; }
         datalist#tags { display: none; }
@@ -15,14 +16,17 @@
         <header>
             <!-- add bookmarks -->
             <div id="data-entry">
-                <input name="new-bookmark" placeholder="url" type="url" size="50" />
-                <section id="tagging">
-                    <input id="tag" list="tags" placeholder="tag" type="text" size="10" />
-                    <datalist id="tags" multiple>
-                        <option value="public">public</option>
-                        <option value="private">private</option>
-                    </datalist>
-                </section>
+                <div id="details">
+                    <input name="new-bookmark" placeholder="url" type="url" size="50" />
+                    <section id="tagging">
+                        <input id="tag" list="tags" placeholder="tag" type="text" size="10" />
+                        <datalist id="tags" multiple>
+                            <option value="public">public</option>
+                            <option value="private">private</option>
+                        </datalist>
+                        <button id="tagIt" onclick="saveTag()">+</button>
+                    </section>
+                </div>
                 <button id="add" disabled>bookmark</button>
             </div>
         </header>
