@@ -8,7 +8,9 @@
         <script src="bookmarks.js"></script>
         <script src="ui.js"></script>
         <style type="text/css">
+        #bookmarkIt { margin-left: 0.25em; }
         #data-entry * { display: inline; }
+        #details { border: thin dotted; padding-top: 0.25em; padding-bottom: 0.25em; }
         datalist#tags { display: none; }
         </style>
     </head>
@@ -27,7 +29,7 @@
                         <button id="tagIt" onclick="saveTag()">+</button>
                     </section>
                 </div>
-                <button id="add" disabled>bookmark</button>
+                <button id="bookmarkIt" disabled>bookmark</button>
             </div>
         </header>
         <nav>
