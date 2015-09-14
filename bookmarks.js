@@ -73,7 +73,6 @@ function restoreDB() {
 }
 
 function insertBookmark(db, bookmark) {
-    var sql = 'INSERT INTO bookmarks(_cols_) VALUES(_vals_);'
     var setColumns = function(bookmark) {
         var cols = 'url, creationDate' // required
 
@@ -101,6 +100,7 @@ function insertBookmark(db, bookmark) {
         }
         return vals
     } // setValues
+    var sql = 'INSERT INTO bookmarks(_cols_) VALUES(_vals_);'
 
     sql = sql.replace('_cols_', setColumns(bookmark))
     sql = sql.replace('_vals_', setValues(bookmark))
