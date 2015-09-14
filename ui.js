@@ -30,3 +30,12 @@ function setExpiration(length) {
     }
     console.log(bookmark)
 } // setExpiration
+
+function setUrl() {
+    var text = document.getElementById('new-bookmark')
+    var button = document.getElementById('bookmarkIt')
+
+    bookmark.url = text.value
+    button.disabled = 1 > bookmark.url.length
+    console.log(bookmark)
+}

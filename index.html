@@ -18,7 +18,8 @@
             <div id="data-entry">
                 <div id="details">
                     <div>
-                        <input name="new-bookmark" placeholder="url" type="url" size="50" />
+                        <input id="new-bookmark" placeholder="url" type="url" size="50"
+                            oninput="setUrl()" />
                         <section id="tagging">
                             <h2 style="display: none;">tags</h2>
                             <input id="tag" list="tags" placeholder="tag" type="text" size="10" />
