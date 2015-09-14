@@ -31,8 +31,8 @@ function createDB() {
 
     var db = new SQL.Database()
 
-    db.run('CREATE TABLE bookmarks (url TEXT, tags TEXT, expirationDate INTEGER, \
-        creationDate INTEGER);')
+    db.run('CREATE TABLE bookmarks (url TEXT, creationDate INTEGER, tags TEXT, \
+        expirationDate INTEGER);')
     db.run('CREATE TABLE tags (tag TEXT);')
 
 // empty database exists in memory
