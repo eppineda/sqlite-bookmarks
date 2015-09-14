@@ -8,10 +8,6 @@
         <script src="bookmarks.js"></script>
         <script src="ui.js"></script>
         <style type="text/css">
-        #bookmarkIt { margin-left: 0.25em; }
-        #data-entry * { display: inline; }
-        #details { border: thin dotted; padding-top: 0.25em; padding-bottom: 0.25em; }
-        datalist#tags { display: none; }
         </style>
     </head>
     <body>
@@ -19,18 +15,27 @@
             <!-- add bookmarks -->
             <div id="data-entry">
                 <div id="details">
-                    <input name="new-bookmark" placeholder="url" type="url" size="50" />
-                    <section id="tagging">
-                        <input id="tag" list="tags" placeholder="tag" type="text" size="10" />
-                        <datalist id="tags" multiple>
-                            <option value="public">public</option>
-                            <option value="private">private</option>
-                        </datalist>
-                        <button id="tagIt" onclick="saveTag()">+</button>
-                    </section>
-                </div>
+                        <input name="new-bookmark" placeholder="url" type="url" size="50" />
+                        <section id="tagging">
+                            <h2 style="display: none;">tags</h2>
+                            <input id="tag" list="tags" placeholder="tag" type="text" size="10" />
+                            <datalist id="tags">
+                                <option value="public">public</option>
+                                <option value="private">private</option>
+                            </datalist>
+                            <button id="tagIt" onclick="saveTag()">+</button>
+                        </section>
+                        Expires
+                        <section id="expiration">
+                            <h2 style="display: none;">expiration date</h2>
+                            <input name="expires" type="radio" value="week" checked="checked">in a week
+                            <input name="expires" type="radio" value="month">in a month
+                            <input name="expires" type="radio" value="year">in a year
+                            <input name="expires" type="radio" value="never">never
+                        </section>
+                </div><!-- details -->
                 <button id="bookmarkIt" disabled>bookmark</button>
-            </div>
+            </div><!-- data-entry -->
         </header>
         <nav>
             <!-- sort and filter bookmarks displayed -->
