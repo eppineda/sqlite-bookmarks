@@ -1,6 +1,7 @@
-var constants = { 'mybookmarks':'mybookmarks' }
+var constants = { 'mybookmarks':'mybookmarks', 'DAY_AS_MILLISECONDS':1000 * 60 * 60 * 24 }
 var db
-var bookmark = { url:'', tags:[], creationDate:new Date(Date.now()).toDateString() }
+var bookmark = { url:'', tags:[], creationDate:Date.now(),
+    expirationDate:Date.now() + constants.DAY_AS_MILLISECONDS * 7 }
 var tags = []
 
 function exportSQLite(db) {

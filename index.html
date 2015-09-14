@@ -33,10 +33,14 @@
                         Expires
                         <section id="expiration">
                             <h2 style="display: none;">expiration date</h2>
-                            <input name="expires" type="radio" value="week" checked="checked">in a week
-                            <input name="expires" type="radio" value="month">in a month
-                            <input name="expires" type="radio" value="year">in a year
-                            <input name="expires" type="radio" value="never">never
+                            <input name="expires" type="radio" value="week" checked="checked"
+                                onclick="setExpiration('week')">in a week
+                            <input name="expires" type="radio" value="month"
+                                onclick="setExpiration('month')">in a month
+                            <input name="expires" type="radio" value="year"
+                                onclick="setExpiration('year')">in a year
+                            <input name="expires" type="radio" value="never"
+                                onclick="setExpiration('never')">never
                         </section>
                     </div>
                 </div><!-- details -->
