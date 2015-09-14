@@ -72,6 +72,41 @@ function restoreDB() {
         /* return reference to SQLite database in memory */
 }
 
+function insertBookmark(db, bookmark) {
+    var sql = 'INSERT INTO bookmarks(_cols_) VALUES(_vals_);'
+    var setColumns = function(bookmark) {
+        var cols = 'url, creationDate' // required
+
+        if (0 < bookmark.tags.length)
+            cols += ', tags'
+        if ('undefined' !== typeof bookmark.expirationDate && null !== bookmark.expirationDate)
+            cols += ', expirationDate'
+
+        return cols
+    } // setColumns
+    var setValues = function(bookmark) {
+        var delimited_string = '\'_val_\''
+        var vals = ''
+
+        vals += delimited_string.replace('_val_', bookmark.url)
+        vals += ', '
+        vals += Date.now()
+        if (0 < bookmark.tags.length) {
+            vals += ', '
+            vals += delimited_string.replace('_val_', bookmark.tags.toString())
+        }
+        if ('undefined' !== typeof bookmark.expirationDate && null !== bookmark.expirationDate) {
+            vals += ', '
+            vals += bookmark.expirationDate
+        }
+        return vals
+    } // setValues
+
+    sql = sql.replace('_cols_', setColumns(bookmark))
+    sql = sql.replace('_vals_', setValues(bookmark))
+    console.log(sql)
+} // insertBookmark
+
 (function() {
     try {
         db = restoreDB()

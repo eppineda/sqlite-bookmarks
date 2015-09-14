@@ -45,5 +45,5 @@ function setUrl() {
 }
 
 function saveBookmark() {
-    // todo: access global db and call sql.js functions
+    insertBookmark(db, bookmark)
 }
