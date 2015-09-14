@@ -108,6 +108,9 @@ function insertBookmark(db, bookmark) {
     db.run(sql)
 } // insertBookmark
 
+function insertTag(name) {
+}
+
 (function() {
     try {
         db = restoreDB()
