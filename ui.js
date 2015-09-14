@@ -43,3 +43,7 @@ function setUrl() {
     button.disabled = 1 > bookmark.url.length
     console.log(bookmark)
 }
+
+function saveBookmark() {
+    // todo: access global db and call sql.js functions
+}
