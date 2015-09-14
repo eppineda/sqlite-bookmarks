@@ -1,6 +1,7 @@
 var constants = { 'mybookmarks':'mybookmarks' }
 var db
 var bookmark = { url:'', tags:[], creationDate:new Date(Date.now()).toDateString() }
+var tags = []
 
 function exportSQLite(db) {
     var bin2String = function(array) {
