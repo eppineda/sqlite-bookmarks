@@ -17,6 +17,7 @@
             <!-- add bookmarks -->
             <div id="data-entry">
                 <div id="details">
+                    <div>
                         <input name="new-bookmark" placeholder="url" type="url" size="50" />
                         <section id="tagging">
                             <h2 style="display: none;">tags</h2>
@@ -27,6 +28,8 @@
                             </datalist>
                             <button id="tagIt" onclick="saveTag()">+</button>
                         </section>
+                    </div>
+                    <div>
                         Expires
                         <section id="expiration">
                             <h2 style="display: none;">expiration date</h2>
@@ -35,6 +38,7 @@
                             <input name="expires" type="radio" value="year">in a year
                             <input name="expires" type="radio" value="never">never
                         </section>
+                    </div>
                 </div><!-- details -->
                 <button id="bookmarkIt" disabled>bookmark</button>
             </div><!-- data-entry -->
