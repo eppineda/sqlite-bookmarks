@@ -1,5 +1,6 @@
 var constants = { 'mybookmarks':'mybookmarks' }
 var db
+var bookmark = { url:'', tags:[], creationDate:new Date(Date.now()).toDateString() }
 
 function exportSQLite(db) {
     var bin2String = function(array) {
@@ -28,8 +29,8 @@ function createDB() {
 
     var db = new SQL.Database()
 
-    db.run('CREATE TABLE bookmarks (url, tags, expirationDate, creationDate);')
-    db.run('CREATE TABLE tags (tag);')
+    db.run('CREATE TABLE bookmarks (url text, tags text, expirationDate date, creationDate date);')
+    db.run('CREATE TABLE tags (tag text);')
 
 // empty database exists in memory
 
