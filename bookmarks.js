@@ -1,4 +1,7 @@
-var constants = { 'mybookmarks':'mybookmarks', 'DAY_AS_MILLISECONDS':1000 * 60 * 60 * 24 }
+var constants = {
+    'mybookmarks':'mybookmarks',
+    'DAY_AS_MILLISECONDS':1000 * 60 * 60 * 24
+}
 var db
 
 function exportSQLite(db) {
