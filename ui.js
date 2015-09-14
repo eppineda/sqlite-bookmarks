@@ -1,3 +1,7 @@
+var bookmark = { url:'', tags:[], creationDate:Date.now(),
+    expirationDate:Date.now() + constants.DAY_AS_MILLISECONDS * 7 }
+var tags = []
+
 function saveTag() {
     var input = document.getElementById('tag')
 
