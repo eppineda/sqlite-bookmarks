@@ -15,46 +15,45 @@
         <h1 style="display:none;">SQLite Bookmarks</h1>
         <header>
 <!-- add bookmark -->
-            <div id="data-entry">
-                <div id="details">
-                    <div>
-                        <input id="new-bookmark" placeholder="url" type="url" size="50"
-                            oninput="setUrl()" />
-                        <section id="tagging">
-                            <h2 style="display:none;">tags</h2>
-                            <input id="tag" list="tags" placeholder="tag" type="text" size="10" />
-                            <datalist id="tags">
-                                <option value="public">public</option>
-                                <option value="private">private</option>
-                            </datalist>
-                            <button id="tagIt" onclick="saveTag()">+</button>
-                        </section>
+            <section id="data-entry">
+                <h2 style="display:none;">Data Entry</h2>
+                <section>
+                    <h3 style="display:none;">URL and Optional Tagging</h3>
+                    <input id="new-bookmark" placeholder="url" type="url" size="50"
+                        oninput="setUrl()" />
+                    <div id="tagging">
+                        <input id="tag" list="tags" placeholder="tag" type="text" size="10" />
+                        <datalist id="tags">
+                        </datalist>
+                        <button id="tagIt" onclick="saveTag()">+</button>
                     </div>
-                    <div>
-                        Expires
-                        <section id="expiration">
-                            <h2 style="display:none;">expiration date</h2>
-                            <input name="expires" type="radio" value="week" checked="checked"
-                                onclick="setExpiration('week')">in a week
-                            <input name="expires" type="radio" value="month"
-                                onclick="setExpiration('month')">in a month
-                            <input name="expires" type="radio" value="year"
-                                onclick="setExpiration('year')">in a year
-                            <input name="expires" type="radio" value="never"
-                                onclick="setExpiration('never')">never
-                        </section>
+                </section>
+                <section>
+                    <h3 style="display:none;">Optional Expiration</h3>
+                    Expires
+                    <div id="expiration">
+                        <input name="expires" type="radio" value="week" checked="checked"
+                            onclick="setExpiration('week')">in a week
+                        <input name="expires" type="radio" value="month"
+                            onclick="setExpiration('month')">in a month
+                        <input name="expires" type="radio" value="year"
+                            onclick="setExpiration('year')">in a year
+                        <input name="expires" type="radio" value="never"
+                            onclick="setExpiration('never')">never
                     </div>
-                </div><!-- details -->
+                </section>
                 <button id="bookmarkIt" disabled onclick="saveBookmark()">
                 bookmark
                 </button>
-            </div><!-- data-entry -->
+            </section><!-- data-entry -->
         </header>
         <nav>
 <!-- sort and filter bookmarks displayed -->
+            <h2 style="display:none;">Sorting and Filtering Options</h2>
         </nav>
         <section>
 <!-- display list of bookmarks -->
+            <h2 style="display:none;">Bookmarks</h2>
             <table>
                 <thead>
                 </thead>
