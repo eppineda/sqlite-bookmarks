@@ -7,6 +7,7 @@ function saveTag() {
 
     if ('' === input.value) return
     bookmark.tags.push(input.value)
+    tags.push(input.value)
     console.log(bookmark)
     input.value = ''
 }
@@ -46,4 +47,7 @@ function setUrl() {
 
 function saveBookmark() {
     insertBookmark(db, bookmark)
+    for (var t in bookmark.tags) {
+        insertTag(db, bookmark.tags[t])
+    }
 }

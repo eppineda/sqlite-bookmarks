@@ -110,7 +110,13 @@ function insertBookmark(db, bookmark) {
     console.log(db.run(sql).exec('SELECT * FROM bookmarks ORDER BY creationDate'))
 } // insertBookmark
 
-function insertTag(name) {
+function insertTag(db, name) {
+    var delimited_string = '\'_val_\''
+    var sql = 'INSERT INTO tags(tag) VALUES(_val_);'
+
+    sql = sql.replace('_val_', delimited_string.replace('_val_', name))
+    console.log(sql)
+    console.log(db.run(sql).exec('SELECT * FROM tags ORDER BY tag'))
 }
 
 (function() {
