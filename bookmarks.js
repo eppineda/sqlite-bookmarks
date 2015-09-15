@@ -107,7 +107,7 @@ function insertBookmark(db, bookmark) {
     sql = sql.replace('_cols_', setColumns(bookmark))
     sql = sql.replace('_vals_', setValues(bookmark))
     console.log(sql)
-    db.run(sql)
+    console.log(db.run(sql).exec('SELECT * FROM bookmarks ORDER BY creationDate'))
 } // insertBookmark
 
 function insertTag(name) {
