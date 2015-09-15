@@ -44,10 +44,11 @@ function setExpiration(length) {
             extension = constants.DAY_AS_MILLISECONDS * 30
             break
         case 'year':
-            extension = constants.DAY_AS_MILLISECONDS * 365
+            extension = constants.DAY_AS_MILLISECONDS * 366
             break
-        default:
+        case 'never':
             bookmark.expirationDate = null
+            break
     } // switch
     if ('undefined' !== typeof extension) {
         when += extension
