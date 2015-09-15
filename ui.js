@@ -73,7 +73,7 @@ function saveBookmark() {
 }
 
 function updateBookmarksView(bookmark) {
-/* dynamically add row to table, with these elements:
+/* dynamically add row to table, with these columns (and in this order):
     url - needs to be hyperlinked
     date bookmarked
     expiration date
