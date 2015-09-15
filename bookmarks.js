@@ -78,7 +78,8 @@ function insertBookmark(db, bookmark) {
 
         if (0 < bookmark.tags.length)
             cols += ', tags'
-        if ('undefined' !== typeof bookmark.expirationDate && null !== bookmark.expirationDate)
+        if ('undefined' !== typeof bookmark.expirationDate &&
+                   null !== bookmark.expirationDate)
             cols += ', expirationDate'
 
         return cols
@@ -94,7 +95,8 @@ function insertBookmark(db, bookmark) {
             vals += ', '
             vals += delimited_string.replace('_val_', bookmark.tags.toString())
         }
-        if ('undefined' !== typeof bookmark.expirationDate && null !== bookmark.expirationDate) {
+        if ('undefined' !== typeof bookmark.expirationDate &&
+                   null !== bookmark.expirationDate) {
             vals += ', '
             vals += bookmark.expirationDate
         }
