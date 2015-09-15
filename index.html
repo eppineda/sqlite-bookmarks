@@ -8,11 +8,11 @@
         <script src="bookmarks.js"></script>
         <script src="ui.js"></script>
         <style type="text/css">
-        #tagging, #expiration { display: inline; }
+        #tagging, #expiration { display:inline; }
         </style>
     </head>
     <body>
-        <h1 style="display: none;">SQLite Bookmarks</h1>
+        <h1 style="display:none;">SQLite Bookmarks</h1>
         <header>
 <!-- add bookmark -->
             <div id="data-entry">
@@ -21,7 +21,7 @@
                         <input id="new-bookmark" placeholder="url" type="url" size="50"
                             oninput="setUrl()" />
                         <section id="tagging">
-                            <h2 style="display: none;">tags</h2>
+                            <h2 style="display:none;">tags</h2>
                             <input id="tag" list="tags" placeholder="tag" type="text" size="10" />
                             <datalist id="tags">
                                 <option value="public">public</option>
@@ -33,7 +33,7 @@
                     <div>
                         Expires
                         <section id="expiration">
-                            <h2 style="display: none;">expiration date</h2>
+                            <h2 style="display:none;">expiration date</h2>
                             <input name="expires" type="radio" value="week" checked="checked"
                                 onclick="setExpiration('week')">in a week
                             <input name="expires" type="radio" value="month"
@@ -55,7 +55,12 @@
         </nav>
         <section>
 <!-- display list of bookmarks -->
-
+            <table>
+                <thead>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </section>
         <footer>
 <!-- delete controls -->
