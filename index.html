@@ -3,10 +3,6 @@
     <head>
         <meta charset="utf-8">
         <title>SQLite Bookmarks</title>
-        <script src="sql.js"></script>
-        <script src="bower_components/simpleStorage/simpleStorage.js"></script>
-        <script src="bookmarks.js"></script>
-        <script src="ui.js"></script>
         <style type="text/css">
         body { background-color:white; color:black; }
         #bookmarksview { margin-top: 1.0em; }
@@ -23,7 +19,7 @@
         tfoot { color:darkgrey; }
         </style>
     </head>
-    <body>
+    <body onload="initializeBookmarksView()">
         <h1 style="display:none;">SQLite Bookmarks</h1>
         <header>
 <!-- add bookmark -->
@@ -84,5 +80,9 @@
         <footer>
 <!-- delete controls -->
         </footer>
+        <script src="sql.js"></script>
+        <script src="bower_components/simpleStorage/simpleStorage.js"></script>
+        <script src="bookmarks.js"></script>
+        <script src="ui.js"></script>
     </body>
 </html>

@@ -99,3 +99,8 @@ function updateBookmarksView(bookmark) {
     tr.appendChild(tdTags).appendChild(tags)
     table.appendChild(tr)
 } // updateBookmarksView
+
+function initializeBookmarksView() {
+    // todo: collect sort options and/or filter options
+    queryTags(db)
+}

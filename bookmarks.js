@@ -123,6 +123,23 @@ function insertTag(db, name) {
     console.log(db.run(sql).exec('SELECT * FROM tags ORDER BY tag'))
 }
 
+function queryTags(db, options) {
+    var sql = 'select * from tags _where_ _orderBy__;'
+    var where = ''
+    var orderBy = ''
+
+    /* todo: WHERE clause generation with options.where, and
+        ORDER BY with options.sort
+    */
+    sql = sql.replace('_where_', where)
+    sql = sql.replace('_orderBy_' ,orderBy)
+
+    var result = db.exec(sql)
+
+    console.log(result)
+}
+
+
 (function() {
     try {
         db = restoreDB()
