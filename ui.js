@@ -69,4 +69,14 @@ function saveBookmark() {
     for (var t in bookmark.tags) {
         insertTag(db, bookmark.tags[t])
     }
+    updateBookmarksView(bookmark)
+}
+
+function updateBookmarksView(bookmark) {
+    /* todo: dynamically add row to table, with these elements:
+        url - needs to be hyperlink
+        date bookmarked - format as needed from milliseconds to human-readable
+        expiration date - format
+        tags - possibly styled as individual spans
+    */
 }
