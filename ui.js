@@ -6,6 +6,10 @@ function saveTag() {
     var input = document.getElementById('tag')
 
     if ('' === input.value) return
+
+    var pattern = new RegExp(input.value)
+
+    if (pattern.test(bookmark.tags.toString())) return // already in array
     bookmark.tags.push(input.value)
     tags.push(input.value)
     console.log(bookmark)
