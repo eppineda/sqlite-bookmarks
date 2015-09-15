@@ -8,7 +8,14 @@
         <script src="bookmarks.js"></script>
         <script src="ui.js"></script>
         <style type="text/css">
+        body { background-color:white; color:black; }
+        #bookmarks { margin-top: 1.0em; }
+        #bookmarks table { border: thin dotted; }
         #tagging, #expiration { display:inline; }
+        td { background-color:white; color:black; padding-left:0.5em; padding-right:0.5em; }
+        th { background-color:lightgrey; padding-left:0.5em; padding-right:0.5em; }
+        td, th { text-align:left; }
+        tfoot { color:darkgrey; }
         </style>
     </head>
     <body>
@@ -51,13 +58,27 @@
 <!-- sort and filter bookmarks displayed -->
             <h2 style="display:none;">Sorting and Filtering Options</h2>
         </nav>
-        <section>
+        <section id="bookmarks">
 <!-- display list of bookmarks -->
             <h2 style="display:none;">Bookmarks</h2>
             <table>
                 <thead>
+                    <tr>
+                        <th>url</th><th>date bookmarked</th><th>expiration date</th><th>tags</th>
+                    </tr>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th>url</th><th>date bookmarked</th><th>expiration date</th><th>tags</th>
+                    </tr>
+                </tfoot>
                 <tbody>
+                    <tr>
+                        <td>http://www.google.com</td>
+                        <td>13 Sep 2015</td>
+                        <td>&nbsp;</td>
+                        <td>searches, internet</td>
+                    </tr>
                 </tbody>
             </table>
         </section>
