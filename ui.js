@@ -13,7 +13,6 @@ function saveTag() {
     bookmark.tags.push(input.value)
     if (pattern.test(tags.toString())) return // already in array
     tags.push(input.value)
-    console.log(bookmark)
     input.value = ''
 }
 
@@ -38,7 +37,6 @@ function setExpiration(length) {
         when += extension
         bookmark.expirationDate = when
     }
-    console.log(bookmark)
 } // setExpiration
 
 function setUrl() {
@@ -48,7 +46,6 @@ function setUrl() {
     if (bookmark.url !== text.value) bookmark.tags = [] // reset
     bookmark.url = text.value
     button.disabled = 1 > bookmark.url.length
-    console.log(bookmark)
 }
 
 function saveBookmark() {
