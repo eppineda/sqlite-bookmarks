@@ -13,8 +13,24 @@ function saveTag() {
     bookmark.tags.push(input.value)
     if (pattern.test(tags.toString())) return // already in array
     tags.push(input.value)
+    refereshTagChoices(tags)
     input.value = ''
 }
+
+function refereshTagChoices(tags) {
+    var dl = document.getElementById('tags')
+
+    if ('undefined' === typeof dl || null === dl) return
+    dl.children = [] // start over
+    for (var t in tags) {
+        var option = document.createElement('option')
+        var value = document.createTextNode(tags[t])
+
+        if ('undefined' === typeof option || 'undefined' === typeof value) break // uh-oh
+        option.appendChild(value)
+        dl.appendChild(option)
+    }
+} // refereshTagChoices
 
 function setExpiration(length) {
     var when = Date.now()
