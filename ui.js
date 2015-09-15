@@ -88,8 +88,8 @@ function updateBookmarksView(bookmark) {
     var url = document.createTextNode(bookmark.url)
     var creationDate = document.createTextNode(new Date(bookmark.creationDate).toDateString())
     var expirationDate = document.createTextNode(
-        'undefined' === typeof bookmark.expirationDate ?
-        '&nbsp;' : new Date(bookmark.expirationDate).toDateString()
+        null === bookmark.expirationDate ?
+        '' : new Date(bookmark.expirationDate).toDateString()
     )
     var tags = document.createTextNode(bookmark.tags.toString())
 
