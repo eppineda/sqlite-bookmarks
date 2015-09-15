@@ -44,6 +44,7 @@ function setUrl() {
     var text = document.getElementById('new-bookmark')
     var button = document.getElementById('bookmarkIt')
 
+    if (bookmark.url !== text.value) bookmark.tags = [] // reset
     bookmark.url = text.value
     button.disabled = 1 > bookmark.url.length
     console.log(bookmark)
