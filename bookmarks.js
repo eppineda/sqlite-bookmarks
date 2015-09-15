@@ -31,11 +31,15 @@ function createDB() {
 
     var db = new SQL.Database()
 
-    db.run('CREATE TABLE bookmarks (url TEXT, creationDate INTEGER, tags TEXT, \
+    db.run('CREATE TABLE bookmarks (url TEXT UNIQUE PRIMARY KEY NOT NULL, \
+        creationDate INTEGER, \
+        tags TEXT, \
         expirationDate INTEGER);')
-    db.run('CREATE TABLE tags (tag TEXT);')
+    db.run('CREATE INDEX idx_creation ON bookmarks(creationDate);')
+    db.run('CREATE INDEX idx_expiration ON bookmarks(expirationDate);')
+    db.run('CREATE TABLE tags (tag TEXT UNIQUE PRIMARY KEY NOT NULL);')
 
-// empty database exists in memory
+// schema ready. empty database exists in memory.
 
     var result = exportSQLite(db)
 
