@@ -73,10 +73,29 @@ function saveBookmark() {
 }
 
 function updateBookmarksView(bookmark) {
-    /* todo: dynamically add row to table, with these elements:
-        url - needs to be hyperlink
-        date bookmarked - format as needed from milliseconds to human-readable
-        expiration date - format
-        tags - possibly styled as individual spans
-    */
-}
+/* dynamically add row to table, with these elements:
+    url - needs to be hyperlinked
+    date bookmarked
+    expiration date
+    tags - todo: possibly styled as individual spans
+*/
+    var table = document.getElementById('bookmarks')
+    var tr = document.createElement('tr')
+    var tdUrl = document.createElement('td')
+    var tdCreation = document.createElement('td')
+    var tdExpiration = document.createElement('td')
+    var tdTags = document.createElement('td')
+    var url = document.createTextNode(bookmark.url)
+    var creationDate = document.createTextNode(new Date(bookmark.creationDate).toDateString())
+    var expirationDate = document.createTextNode(
+        'undefined' === typeof bookmark.expirationDate ?
+        '&nbsp;' : new Date(bookmark.expirationDate).toDateString()
+    )
+    var tags = document.createTextNode(bookmark.tags.toString())
+
+    tr.appendChild(tdUrl).appendChild(url)
+    tr.appendChild(tdCreation).appendChild(creationDate)
+    tr.appendChild(tdExpiration).appendChild(expirationDate)
+    tr.appendChild(tdTags).appendChild(tags)
+    table.appendChild(tr)
+} // updateBookmarksView

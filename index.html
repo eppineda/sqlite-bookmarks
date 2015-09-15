@@ -9,8 +9,8 @@
         <script src="ui.js"></script>
         <style type="text/css">
         body { background-color:white; color:black; }
-        #bookmarks { margin-top: 1.0em; }
-        #bookmarks table { border: thin dotted; }
+        #bookmarksview { margin-top: 1.0em; }
+        #bookmarks { border: thin dotted; }
         #tagging, #expiration { display:inline; }
         td {
             background-color: white; color: black; padding-left: 0.5em;
@@ -63,10 +63,10 @@
 <!-- sort and filter bookmarks displayed -->
             <h2 style="display:none;">Sorting and Filtering Options</h2>
         </nav>
-        <section id="bookmarks">
+        <section id="bookmarksview">
 <!-- display list of bookmarks -->
             <h2 style="display:none;">Bookmarks</h2>
-            <table>
+            <table id="bookmarks">
                 <thead>
                     <tr>
                         <th>url</th><th>date bookmarked</th><th>expiration date</th><th>tags</th>
@@ -78,12 +78,6 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        <td>http://www.google.com</td>
-                        <td>13 Sep 2015</td>
-                        <td>&nbsp;</td>
-                        <td>searches, internet</td>
-                    </tr>
                 </tbody>
             </table>
         </section>
