@@ -71,6 +71,7 @@ function saveBookmark() {
         insertTag(db, bookmark.tags[t])
     }
     updateBookmarksView(bookmark)
+    saveDB(db)
 }
 
 function updateBookmarksView(bookmark) {
