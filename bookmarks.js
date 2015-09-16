@@ -125,6 +125,10 @@ function insertTag(db, name) {
 
 function queryTags(db) {
     var sql = 'select * from tags order by tag;'
+    var result = db.exec(sql)
+
+    return result[0].values
+}
     var where = ''
     var orderBy = ''
     var result = db.exec(sql)
