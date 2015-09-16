@@ -137,22 +137,17 @@ FROM bookmarks _where_ _orderby_'
     var where = ''
     var orderBy = 'ORDER BY ' + options.orderBy
 
-    /* todo: set up search options
-    options.where can be: tag LIKE %TAG%
-    option.order by can be : ORDER BY <url, creationDate, expirationDate>
-    */
-
     if (0 < options.where.length) {
         where = 'WHERE tags LIKE \'%_pattern_%\''
         where = where.replace('_pattern_', options.where)
     }
     sql = sql.replace('_where_', where)
     sql = sql.replace('_orderby_', orderBy)
-    console.log(sql)
 
     var bookmarks = []
     var result
 
+    console.log(sql)
     try { result = db.exec(sql) }
     catch(ignored) { console.error(ignored) }
     finally  {
