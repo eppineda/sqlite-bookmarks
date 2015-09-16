@@ -24,7 +24,8 @@ function refreshTagChoices(tags) {
     var dl = document.getElementById('tags')
 
     if ('undefined' === typeof dl || null === dl) return
-    dl.children = [] // start over
+    while (dl.firstChild)
+        dl.removeChild(dl.firstChild)
     for (var t in tags) {
         var option = document.createElement('option')
         var value = document.createTextNode(tags[t])
