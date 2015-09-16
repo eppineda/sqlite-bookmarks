@@ -134,7 +134,7 @@ function queryBookmarks(db, options) {
     var sql = 'select url, creationDate, expirationDate, tags \
         from bookmarks _where_ _orderby_'
     var where = ''
-    var orderBy = ''
+    var orderBy = 'ORDER BY url'
 
     /* todo: set up search options
     options.where can be: tag LIKE %TAG%
