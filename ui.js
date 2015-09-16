@@ -75,12 +75,6 @@ function saveBookmark() {
 }
 
 function updateBookmarksView(bookmark) {
-/* dynamically add row to table, with these columns (and in this order):
-    url - needs to be hyperlinked
-    date bookmarked
-    expiration date
-    tags - todo: possibly styled as individual spans
-*/
     var table = document.getElementById('bookmarks')
     var tr = document.createElement('tr')
     var tdUrl = document.createElement('td')
