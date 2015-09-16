@@ -129,8 +129,21 @@ function queryTags(db) {
 
     return result[0].values
 }
+
+function queryBookmarks(db, options) {
+    var sql = 'select url, creationDate, expirationDate, tags \
+        from bookmarks _where_ _orderby_'
     var where = ''
     var orderBy = ''
+
+    /* todo: set up search options
+    options.where can be: tag LIKE %TAG%
+    option.order by can be : ORDER BY <url, creationDate, expirationDate>
+    */
+
+    sql = sql.replace('_where_', where)
+    sql = sql.replace('_orderby_', orderBy)
+
     var result = db.exec(sql)
 
     return result[0].values
