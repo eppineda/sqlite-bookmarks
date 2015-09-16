@@ -103,11 +103,17 @@ function updateBookmarksView(bookmark) {
 } // updateBookmarksView
 
 function initializeBookmarksView() {
-    // todo: collect sort options and/or filter options
-    var tags = queryTags(db) // todo: confirm structure of returned object
+    var tags = queryTags(db)
+    var bookmarks = queryBookmarks(db) /* todo: collect sort options
+        and/or filter options */
 
-    console.log('initializeBookmarksView', tags)
     for (var t in tags) {
         refereshTagChoices(tags)
+    }
+    for (var b in bookmarks) {
+        var bookmark = { url:bookmarks[b][0], creationDate:bookmarks[b][1],
+            expirationDate:bookmarks[b][2], tags:bookmarks[b][3] }
+
+        updateBookmarksView(bookmark)
     }
 }
