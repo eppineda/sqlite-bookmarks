@@ -124,15 +124,15 @@ function insertTag(db, name) {
 }
 
 function queryTags(db) {
-    var sql = 'select * from tags order by tag;'
+    var sql = 'SELECT * FROM tags ORDER BY tag;'
     var result = db.exec(sql)
 
     return result[0].values
 }
 
 function queryBookmarks(db, options) {
-    var sql = 'select url, creationDate, expirationDate, tags \
-        from bookmarks _where_ _orderby_'
+    var sql = 'SELECT url, creationDate, expirationDate, tags \
+FROM bookmarks _where_ _orderby_'
     var where = ''
     var orderBy = 'ORDER BY url'
 
