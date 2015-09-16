@@ -21,7 +21,7 @@
         tfoot { color: darkgrey; }
         </style>
     </head>
-    <body onload="initializeBookmarksView()">
+    <body onload="initializeBookmarksView()" onunload="cleanup()">
         <h1 style="display:none;">SQLite Bookmarks</h1>
         <header>
 <!-- add bookmark -->

@@ -149,3 +149,7 @@ function setFilterOption(option) {
     initializeBookmarksView()
 // bookmarks re-rendered to sort list as specified
 }
+
+function cleanup() {
+    db.close()
+}
