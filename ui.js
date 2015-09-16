@@ -20,8 +20,8 @@ function saveTag() {
     input.value = ''
 }
 
-function refreshTagChoices(tags) {
-    var dl = document.getElementById('tags')
+function refreshTagChoices(tags, id) {
+    var dl = document.getElementById(id)
 
     if ('undefined' === typeof dl || null === dl) return
     while (dl.firstChild)
@@ -113,8 +113,10 @@ function initializeBookmarksView() {
     var tags = queryTags(db)
     var bookmarks = queryBookmarks(db, options)
 
-    for (var t in tags)
-        refreshTagChoices(tags)
+    for (var t in tags) {
+        refreshTagChoices(tags, 'tags')
+        refreshTagChoices(tags, 'choices')
+    }
     for (var b in bookmarks) {
         var bookmark = { url:bookmarks[b][0], creationDate:bookmarks[b][1],
             expirationDate:bookmarks[b][2], tags:bookmarks[b][3] }
@@ -135,5 +137,21 @@ function setSortOption(option) {
 // tbody element is now empty
     initializeBookmarksView()
     sort = 'url' // reset to default
+// bookmarks re-rendered to sort list as specified
+}
+
+function getFilterOption() { return document.getElementById('filter').value }
+
+function setFilterOption(option) {
+    filter = option
+    options.where = filter
+
+    var tbody = document.getElementById('bookmarks')
+
+    while (tbody.firstChild)
+        tbody.removeChild(tbody.firstChild)
+// tbody element is now empty
+    initializeBookmarksView()
+    filter = '' // reset to default
 // bookmarks re-rendered to sort list as specified
 }

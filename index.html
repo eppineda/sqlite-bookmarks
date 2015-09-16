@@ -75,7 +75,12 @@
                         <th>
                             <a href="#" onclick="setSortOption('expirationDate')">expiration date</a>
                         </th>
-                        <th>tags</th>
+                        <th>
+                            <input id="filter" list="choices" placeholder="tags"type="text" type="text" size="10" />
+                            <datalist id="choices">
+                            </datalist>
+                            <button id="filterIt" onclick="setFilterOption(getFilterOption())">=</button>
+                        </th>
                     </tr>
                 </thead>
                 <tfoot>
