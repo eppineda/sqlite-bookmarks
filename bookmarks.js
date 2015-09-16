@@ -134,21 +134,31 @@ function queryBookmarks(db, options) {
     var sql = 'SELECT url, creationDate, expirationDate, tags \
 FROM bookmarks _where_ _orderby_'
     var where = ''
-    var orderBy = 'ORDER BY url'
+    var orderBy = 'ORDER BY ' + options.orderBy
 
     /* todo: set up search options
     options.where can be: tag LIKE %TAG%
     option.order by can be : ORDER BY <url, creationDate, expirationDate>
     */
 
+    if (0 < options.where.length) {
+        where = 'WHERE tags LIKE \'%_pattern_%\''
+        where = where.replace('_pattern_', options.where)
+    }
     sql = sql.replace('_where_', where)
     sql = sql.replace('_orderby_', orderBy)
+    console.log(sql)
 
-    var result = db.exec(sql)
+    var bookmarks = []
+    var result
 
-    return result[0].values
-}
-
+    try { result = db.exec(sql) }
+    catch(ignored) { console.error(ignored) }
+    finally  {
+        if ('undefined' !== typeof result[0]) bookmarks = result[0].values
+        return bookmarks
+    }
+} // queryBookmarks
 
 (function() {
     try {

@@ -1,6 +1,9 @@
 var bookmark = { url:'', tags:[], creationDate:Date.now(),
     expirationDate:Date.now() + constants.DAY_AS_MILLISECONDS * 7 }
 var tags = []
+var sort = 'url' // default
+var filter = ''
+var options = { where:filter, orderBy:sort }
 
 function saveTag() {
     var input = document.getElementById('tag')
@@ -107,7 +110,7 @@ function updateBookmarksView(bookmark) {
 
 function initializeBookmarksView() {
     var tags = queryTags(db)
-    var bookmarks = queryBookmarks(db) /* todo: collect sort options
+    var bookmarks = queryBookmarks(db, options)
         and/or filter options */
 
     for (var t in tags)
