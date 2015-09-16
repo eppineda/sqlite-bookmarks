@@ -120,7 +120,8 @@ function insertTag(db, name) {
 
     sql = sql.replace('_val_', delimited_string.replace('_val_', name))
     console.log(sql)
-    console.log(db.run(sql).exec('SELECT * FROM tags ORDER BY tag'))
+    try { console.log(db.run(sql).exec('SELECT * FROM tags ORDER BY tag')) }
+    catch (ignored) { console.error(ignored) }
 }
 
 function queryTags(db) {
