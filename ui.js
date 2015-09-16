@@ -13,11 +13,11 @@ function saveTag() {
     bookmark.tags.push(input.value)
     if (pattern.test(tags.toString())) return // already in array
     tags.push(input.value)
-    refereshTagChoices(tags)
+    refreshTagChoices(tags)
     input.value = ''
 }
 
-function refereshTagChoices(tags) {
+function refreshTagChoices(tags) {
     var dl = document.getElementById('tags')
 
     if ('undefined' === typeof dl || null === dl) return
@@ -30,7 +30,7 @@ function refereshTagChoices(tags) {
         option.appendChild(value)
         dl.appendChild(option)
     }
-} // refereshTagChoices
+} // refreshTagChoices
 
 function setExpiration(length) {
     var when = Date.now()
@@ -111,7 +111,7 @@ function initializeBookmarksView() {
         and/or filter options */
 
     for (var t in tags) {
-        refereshTagChoices(tags)
+        refreshTagChoices(tags)
     }
     for (var b in bookmarks) {
         var bookmark = { url:bookmarks[b][0], creationDate:bookmarks[b][1],
