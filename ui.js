@@ -110,9 +110,8 @@ function initializeBookmarksView() {
     var bookmarks = queryBookmarks(db) /* todo: collect sort options
         and/or filter options */
 
-    for (var t in tags) {
+    for (var t in tags)
         refreshTagChoices(tags)
-    }
     for (var b in bookmarks) {
         var bookmark = { url:bookmarks[b][0], creationDate:bookmarks[b][1],
             expirationDate:bookmarks[b][2], tags:bookmarks[b][3] }
