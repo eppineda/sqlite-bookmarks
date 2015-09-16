@@ -1,9 +1,7 @@
 var bookmark = { url:'', tags:[], creationDate:Date.now(),
     expirationDate:Date.now() + constants.DAY_AS_MILLISECONDS * 7 }
 var tags = []
-var sort = 'url' // default
-var filter = ''
-var options = { where:filter, orderBy:sort }
+var options = { where:'', orderBy:'url' } // defaults
 
 function saveTag() {
     var input = document.getElementById('tag')
@@ -126,8 +124,7 @@ function initializeBookmarksView() {
 }
 
 function setSortOption(option) {
-    sort = option
-    options.orderBy = sort
+    options.orderBy = option
 // either 'url', 'creationDate' or 'expirationDate'
 
     var tbody = document.getElementById('bookmarks')
@@ -136,15 +133,13 @@ function setSortOption(option) {
         tbody.removeChild(tbody.firstChild)
 // tbody element is now empty
     initializeBookmarksView()
-    sort = 'url' // reset to default
 // bookmarks re-rendered to sort list as specified
 }
 
 function getFilterOption() { return document.getElementById('filter').value }
 
 function setFilterOption(option) {
-    filter = option
-    options.where = filter
+    options.where = option
 
     var tbody = document.getElementById('bookmarks')
 
@@ -152,6 +147,5 @@ function setFilterOption(option) {
         tbody.removeChild(tbody.firstChild)
 // tbody element is now empty
     initializeBookmarksView()
-    filter = '' // reset to default
 // bookmarks re-rendered to sort list as specified
 }
