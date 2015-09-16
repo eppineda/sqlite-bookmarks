@@ -94,8 +94,17 @@ function updateBookmarksView(bookmark) {
         '' : new Date(bookmark.expirationDate).toDateString()
     )
     var tags = document.createTextNode(bookmark.tags.toString())
+    var hyperlink = function(url) {
+        var a = document.createElement('a')
+        var textNode = document.createTextNode(url)
 
-    tr.appendChild(tdUrl).appendChild(url)
+        a.href = url
+        a.target = '_blank'
+        a.appendChild(textNode)
+        return a
+    }
+
+    tr.appendChild(tdUrl).appendChild(hyperlink(bookmark.url))
     tr.appendChild(tdCreation).appendChild(creationDate)
     tr.appendChild(tdExpiration).appendChild(expirationDate)
     tr.appendChild(tdTags).appendChild(tags)
