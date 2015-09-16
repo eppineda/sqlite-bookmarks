@@ -103,5 +103,10 @@ function updateBookmarksView(bookmark) {
 
 function initializeBookmarksView() {
     // todo: collect sort options and/or filter options
-    queryTags(db)
+    var tags = queryTags(db) // todo: confirm structure of returned object
+
+    console.log('initializeBookmarksView', tags)
+    for (var t in tags) {
+        refereshTagChoices(tags)
+    }
 }
