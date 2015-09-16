@@ -136,7 +136,7 @@ function queryTags(db, options) {
 
     var result = db.exec(sql)
 
-    console.log(result)
+    return result[0].values
 }
 
 
