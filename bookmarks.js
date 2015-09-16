@@ -126,9 +126,16 @@ function insertTag(db, name) {
 function queryTags(db) {
     var sql = 'SELECT * FROM tags ORDER BY tag;'
     var result = db.exec(sql)
+    var tags = []
+    var result
 
-    result = []
-    return result[0].values
+    console.log(sql)
+    try { result = db.exec(sql) }
+    catch(ignored) { console.error(ignored) }
+    finally  {
+        if ('undefined' !== typeof result[0]) tags = result[0].values
+        return tags
+    }
 }
 
 function queryBookmarks(db, options) {
