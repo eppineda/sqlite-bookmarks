@@ -121,3 +121,18 @@ function initializeBookmarksView() {
         updateBookmarksView(bookmark)
     }
 }
+
+function setSortOption(option) {
+    sort = option
+    options.orderBy = sort
+// either 'url', 'creationDate' or 'expirationDate'
+
+    var tbody = document.getElementById('bookmarks')
+
+    while (tbody.firstChild)
+        tbody.removeChild(tbody.firstChild)
+// tbody element is now empty
+    initializeBookmarksView()
+    sort = 'url' // reset to default
+// bookmarks re-rendered to sort list as specified
+}
