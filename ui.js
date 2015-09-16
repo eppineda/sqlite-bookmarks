@@ -111,7 +111,6 @@ function updateBookmarksView(bookmark) {
 function initializeBookmarksView() {
     var tags = queryTags(db)
     var bookmarks = queryBookmarks(db, options)
-        and/or filter options */
 
     for (var t in tags)
         refreshTagChoices(tags)

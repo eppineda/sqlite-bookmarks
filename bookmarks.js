@@ -127,6 +127,7 @@ function queryTags(db) {
     var sql = 'SELECT * FROM tags ORDER BY tag;'
     var result = db.exec(sql)
 
+    result = []
     return result[0].values
 }
 
