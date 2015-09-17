@@ -77,6 +77,10 @@ function saveBookmark() {
     }
     updateBookmarksView(bookmark)
     saveDB(db)
+
+    var text = document.getElementById('new-bookmark')
+
+    text.value = ''
 }
 
 function updateBookmarksView(bookmark) {
