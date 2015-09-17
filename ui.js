@@ -103,7 +103,7 @@ function updateBookmarksView(bookmark) {
         return a
     }
     var setClickHandler = function(url) {
-        var handler = 'requestDeletion(\'_url_\')'
+        var handler = 'removeBookmark(\'_url_\')'
 
         handler = handler.replace('_url_', url)
         return handler
@@ -171,7 +171,7 @@ function cleanup() {
     db.close()
 }
 
-function requestDeletion(url) {
+function removeBookmark(url) {
     deleteBookmark(db, url)
     saveDB(db)
     initializeBookmarksView()
