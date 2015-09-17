@@ -164,6 +164,14 @@ FROM bookmarks _where_ _orderby_'
     }
 } // queryBookmarks
 
+function deleteBookmark(url) {
+    var sql = 'DELETE FROM bookmarks WHERE url=\'_url_\';'
+
+    sql = sql.replace('_url_', url)
+    console.log(sql)
+    console.log(db.run(sql).exec('SELECT * FROM bookmarks ORDER BY creationDate'))
+}
+
 (function() {
     try {
         db = restoreDB()
