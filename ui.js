@@ -145,16 +145,29 @@ function initializeBookmarksView() {
 
 // datalists refreshed
 
+    var expired = []
+    var today = Date.now()
+
     for (var b in bookmarks) {
         var bookmark = { url:bookmarks[b][0], creationDate:bookmarks[b][1],
             expirationDate:bookmarks[b][2], tags:bookmarks[b][3] }
 
-        updateBookmarksView(bookmark)
+        if (today > bookmark.expirationDate)
+            expired.push(bookmark.url) // no longer wanted
+        else
+            updateBookmarksView(bookmark)
     }
+    purge(expired)
 
 // list of bookmarks refreshed
 
 } // initializeBookmarksView
+
+function purge(expired) {
+    for (var e in expired) {
+        removeBookmark(expired[e])
+    }
+}
 
 function setSortOption(option) {
     options.orderBy = option // 'url', 'creationDate' or 'expirationDate'
