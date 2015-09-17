@@ -65,7 +65,8 @@ function setUrl() {
     var button = document.getElementById('bookmarkIt')
 
     if (bookmark.url !== text.value) bookmark.tags = [] // reset
-    bookmark.url = text.value
+    bookmark.url = text.value.toLowerCase()
+    text.value = bookmark.url // reflect back to input element
     button.disabled = 1 > bookmark.url.length
 }
 
