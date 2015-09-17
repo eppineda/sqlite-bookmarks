@@ -5,15 +5,17 @@ var options = { where:'', orderBy:'url' } // defaults
 
 function saveTag() {
     var input = document.getElementById('tag')
+    var tag = input.value.toLowerCase()
 
-    if ('' === input.value) return
+    if ('' === tag) return
 
-    var pattern = new RegExp(input.value)
+    var pattern = new RegExp(tag)
 
+    input.value = tag // reflect back to input element so that datalist can match
     if (pattern.test(bookmark.tags.toString())) return // already in array
-    bookmark.tags.push(input.value)
+    bookmark.tags.push(tag)
     if (pattern.test(tags.toString())) return // already in array
-    tags.push(input.value)
+    tags.push(tag)
     refreshTagChoices(tags)
     input.value = ''
 }
@@ -70,7 +72,7 @@ function setUrl() {
 function saveBookmark() {
     insertBookmark(db, bookmark)
     for (var t in bookmark.tags) {
-        insertTag(db, bookmark.tags[t])
+        insertTag(db, bookmark.tags[t].toLowerCase())
     }
     updateBookmarksView(bookmark)
     saveDB(db)
