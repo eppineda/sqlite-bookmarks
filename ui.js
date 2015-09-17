@@ -79,10 +79,13 @@ function saveBookmark() {
 function updateBookmarksView(bookmark) {
     var table = document.getElementById('bookmarks')
     var tr = document.createElement('tr')
+    var tdDeletion = document.createElement('td')
     var tdUrl = document.createElement('td')
     var tdCreation = document.createElement('td')
     var tdExpiration = document.createElement('td')
     var tdTags = document.createElement('td')
+    var a = document.createElement('a')
+    var x = document.createTextNode('x')
     var url = document.createTextNode(bookmark.url)
     var creationDate = document.createTextNode(new Date(bookmark.creationDate).toDateString())
     var expirationDate = document.createTextNode(
@@ -99,7 +102,18 @@ function updateBookmarksView(bookmark) {
         a.appendChild(textNode)
         return a
     }
+    var setClickHandler = function(url) {
+        var handler = 'deleteBookmark(\'_url_\')'
 
+        handler = handler.replace('_url_', url)
+        return handler
+    }
+
+    tdDeletion.setAttribute('style', 'text-align: center; border: thin dotted lightgrey;')
+    a.setAttribute('href', '#')
+    a.setAttribute('onclick', setClickHandler(bookmark.url))
+    a.setAttribute('style', 'text-decoration:none;')
+    tr.appendChild(tdDeletion).appendChild(a).appendChild(x)
     tr.appendChild(tdUrl).appendChild(hyperlink(bookmark.url))
     tr.appendChild(tdCreation).appendChild(creationDate)
     tr.appendChild(tdExpiration).appendChild(expirationDate)
@@ -115,13 +129,18 @@ function initializeBookmarksView() {
         refreshTagChoices(tags, 'tags')
         refreshTagChoices(tags, 'choices')
     }
+
+// datalists refreshed
+
     for (var b in bookmarks) {
         var bookmark = { url:bookmarks[b][0], creationDate:bookmarks[b][1],
             expirationDate:bookmarks[b][2], tags:bookmarks[b][3] }
 
         updateBookmarksView(bookmark)
     }
-}
+
+// list of bookmarks refreshed
+} // initializeBookmarksView
 
 function setSortOption(option) {
     options.orderBy = option
@@ -152,4 +171,8 @@ function setFilterOption(option) {
 
 function cleanup() {
     db.close()
+}
+
+function deleteBookmark(url) {
+    console.log('deleteBookmark', url)
 }
