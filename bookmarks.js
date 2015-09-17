@@ -164,7 +164,7 @@ FROM bookmarks _where_ _orderby_'
     }
 } // queryBookmarks
 
-function deleteBookmark(url) {
+function deleteBookmark(db, url) {
     var sql = 'DELETE FROM bookmarks WHERE url=\'_url_\';'
 
     sql = sql.replace('_url_', url)

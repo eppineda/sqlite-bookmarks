@@ -172,7 +172,7 @@ function cleanup() {
 }
 
 function requestDeletion(url) {
-    deleteBookmark(url)
+    deleteBookmark(db, url)
     saveDB(db)
     initializeBookmarksView()
 }
