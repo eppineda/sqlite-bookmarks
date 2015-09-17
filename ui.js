@@ -124,6 +124,12 @@ function updateBookmarksView(bookmark) {
 function initializeBookmarksView() {
     var tags = queryTags(db)
     var bookmarks = queryBookmarks(db, options)
+    var tbody = document.getElementById('bookmarks')
+
+    while (tbody.firstChild)
+        tbody.removeChild(tbody.firstChild)
+
+// tbody element is now empty
 
     for (var t in tags) {
         refreshTagChoices(tags, 'tags')
@@ -140,33 +146,25 @@ function initializeBookmarksView() {
     }
 
 // list of bookmarks refreshed
+
 } // initializeBookmarksView
 
 function setSortOption(option) {
-    options.orderBy = option
-// either 'url', 'creationDate' or 'expirationDate'
-
-    var tbody = document.getElementById('bookmarks')
-
-    while (tbody.firstChild)
-        tbody.removeChild(tbody.firstChild)
-// tbody element is now empty
+    options.orderBy = option // 'url', 'creationDate' or 'expirationDate'
     initializeBookmarksView()
+
 // bookmarks re-rendered to sort list as specified
+
 }
 
 function getFilterOption() { return document.getElementById('filter').value }
 
 function setFilterOption(option) {
     options.where = option
-
-    var tbody = document.getElementById('bookmarks')
-
-    while (tbody.firstChild)
-        tbody.removeChild(tbody.firstChild)
-// tbody element is now empty
     initializeBookmarksView()
+
 // bookmarks re-rendered to sort list as specified
+
 }
 
 function cleanup() {
